@@ -1,0 +1,8 @@
+users:
+  handler: index.main
+  module: src/functions/users
+  events:
+    - http:
+        path: users/{proxy+}
+        method: ANY
+        cors: true

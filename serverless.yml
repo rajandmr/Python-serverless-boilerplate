@@ -1,0 +1,27 @@
+
+service: python-lambda-boilerplate
+
+provider:
+  name: aws
+  runtime: python3.8
+  profile: personal
+  deploymentBucket: modern-workshop-bucket
+
+package:
+  individually: true
+  exclude:
+    - venv/**
+    - library/**
+    - node_modules/**
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+
+
+functions:
+  - ${file(src/functions/users/index.yml)}
+  # - ${file(src/functions/notes/index.yml)}
