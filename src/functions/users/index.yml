@@ -1,6 +1,7 @@
 users:
   handler: index.main
   module: src/functions/users
+  package: {}
   events:
     - http:
         path: users/{proxy+}

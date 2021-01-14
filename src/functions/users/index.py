@@ -9,7 +9,7 @@ def main(event, context):
     try:
         action = routes[path]["action"]
         print(path)
-        body = event['body']
+        body = event['body'] or event
         if body is None:
             body = "{}"
         response = action(request=json.loads(body))
